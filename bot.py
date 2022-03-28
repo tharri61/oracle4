@@ -27,7 +27,7 @@ domain = "zlEC:AP-SINGAPORE-1-AD-1"  # availability_domain
 image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaau4hz4e5xxjz75dwhydtlzx6hmo4gxe6x6xgfaripyhhqycsngksa"
 subnet_id = 'ocid1.subnet.oc1.ap-singapore-1.aaaaaaaa2ybvox7opntfns46jpklt6yozx7yrnaesjnf5yl7gqsyrlo2i4aa'
 
-ssh_key = "ssh-rsa ************************"
+ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDoS0+ypwHlbP6Z90WLWdYeAQyTUsEhvkyMY9ZmQ4udh4AywJPfqJtVWEXY72gUbGbdJmuuOZZWGu2uHT8H/D6L+4/knO0JduolpYC+1z0drXiuFgvCF4H391qpyM11zGS0cyQjUywbtHuqI/Yc19tqJcO5sKNKFyBGH6QRcbSSXA2o3aD3b57BL+cIJBngahQJZ3g3WlItspZ89uAm3aCqZKrJtSE/6oktlWWldRIcLGh8uoe3uuP/LGSHa02PdJZf5fqHDbActZvObFB2T9TexFxRguaRnxKlie56F32gNYDtaQqJfkQwv45wR/PVj7y2ZO5HYx6Oa3yLC/KRzAIJ ssh-key-2022-03-28"
 # Telegram setting
 # https://medium.com/@ManHay_Hong/how-to-create-a-telegram-bot-and-send-messages-with-python-4cf314d9fa3e
 # Create bot with BotFather, get the API key
