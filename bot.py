@@ -24,7 +24,7 @@ wait_s_for_retry = 5
 instance_display_name = 'instance-20220328-2314'
 compartment_id = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
 domain = "zlEC:AP-SINGAPORE-1-AD-1"  # availability_domain
-image_id = "ocid1.image.oc1.ap-singapore-1.*******************************"
+image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaau4hz4e5xxjz75dwhydtlzx6hmo4gxe6x6xgfaripyhhqycsngksa"
 subnet_id = 'ocid1.subnet.oc1.ap-singapore-1.********************'
 
 ssh_key = "ssh-rsa ************************"
