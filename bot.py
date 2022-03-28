@@ -21,7 +21,7 @@ logging.basicConfig(
 ocpus = 4
 memory_in_gbs = ocpus*6
 wait_s_for_retry = 5
-instance_display_name = 'ubuntu-sg-oci*********'
+instance_display_name = 'instance-20220328-2314'
 compartment_id = 'ocid1.tenancy.oc1..**********************************'
 domain = "rhNU:AP-********************"  # availability_domain
 image_id = "ocid1.image.oc1.ap-singapore-1.*******************************"
