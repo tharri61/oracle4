@@ -20,7 +20,7 @@ logging.basicConfig(
 # OCI API_KEY and other parametter: https://github.com/hitrov/oci-arm-host-capacity (intercept request from web console)
 ocpus = 4
 memory_in_gbs = ocpus*6
-wait_s_for_retry = 5
+wait_s_for_retry = 10
 instance_display_name = 'instance-20220328-2314'
 compartment_id = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
 domain = "zlEC:AP-SINGAPORE-1-AD-1"  # availability_domain
