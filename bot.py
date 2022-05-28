@@ -21,13 +21,13 @@ logging.basicConfig(
 ocpus = 4
 memory_in_gbs = ocpus*6
 wait_s_for_retry = 10
-instance_display_name = 'instance-20220328-2314'
+instance_display_name = 'instance-20220528-1235'
 compartment_id = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
 domain = "zlEC:AP-SINGAPORE-1-AD-1"  # availability_domain
-image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaau4hz4e5xxjz75dwhydtlzx6hmo4gxe6x6xgfaripyhhqycsngksa"
-subnet_id = 'ocid1.subnet.oc1.ap-singapore-1.aaaaaaaa2ybvox7opntfns46jpklt6yozx7yrnaesjnf5yl7gqsyrlo2i4aa'
+image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaaldfh4yzwhddx4ms7pytplyg5ncnp4kgeiam37zrgwh2qcfifpo3q"
+subnet_id = 'ocid1.subnet.oc1.ap-singapore-1.aaaaaaaafeijlmw7efv37vb7i6p4nl3xnro5wwynnqljmn2g24hzts22qc4a'
 
-ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDoS0+ypwHlbP6Z90WLWdYeAQyTUsEhvkyMY9ZmQ4udh4AywJPfqJtVWEXY72gUbGbdJmuuOZZWGu2uHT8H/D6L+4/knO0JduolpYC+1z0drXiuFgvCF4H391qpyM11zGS0cyQjUywbtHuqI/Yc19tqJcO5sKNKFyBGH6QRcbSSXA2o3aD3b57BL+cIJBngahQJZ3g3WlItspZ89uAm3aCqZKrJtSE/6oktlWWldRIcLGh8uoe3uuP/LGSHa02PdJZf5fqHDbActZvObFB2T9TexFxRguaRnxKlie56F32gNYDtaQqJfkQwv45wR/PVj7y2ZO5HYx6Oa3yLC/KRzAIJ ssh-key-2022-03-28"
+ssh_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvzzFmmlrKkB/uH8WW+eMBQFCpi3gnU26y1qqK1RKgtFjJZlIzTxOyRr2LqMPXSH02mxiIR9u9LQjdXeQiuitGS3K6auxwj4JM50UMt/EkGzU/CLtCw8Ytsem0RW24+pKliQmhV9+AAD9OICRIznoUvLmL3QhLn7CXJhbD/pitBl6GbIlDB/LXSw847bIjeRVzxD0CiObl0tyq+hwGgqcJkj8aJunQcZEyAjHhFBC+T8wtANE/tM+FHy+SLQK1YDPctDr/L6w+3jSNvNEqBYXXD+dpIsEt7hygvzHCuJeTUOSdnh63YeujjtD1IfwGtaoy9p5tg4I1WRPPxOlfC3Hb ssh-key-2022-05-28"
 # Telegram setting
 # https://medium.com/@ManHay_Hong/how-to-create-a-telegram-bot-and-send-messages-with-python-4cf314d9fa3e
 # Create bot with BotFather, get the API key
