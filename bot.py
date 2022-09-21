@@ -1,9 +1,9 @@
-displayName = 'instance-20220528-1235'
-compartmentId = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
-availabilityDomain = "zlEC:AP-SINGAPORE-1-AD-1"
-imageId = "ocid1.image.oc1.ap-singapore-1.aaaaaaaaldfh4yzwhddx4ms7pytplyg5ncnp4kgeiam37zrgwh2qcfifpo3q"
-subnetId = 'ocid1.subnet.oc1.ap-singapore-1.aaaaaaaafeijlmw7efv37vb7i6p4nl3xnro5wwynnqljmn2g24hzts22qc4a'
-ssh_authorized_keys = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvzzFmmlrKkB/uH8WW+eMBQFCpi3gnU26y1qqK1RKgtFjJZlIzTxOyRr2LqMPXSH02mxiIR9u9LQjdXeQiuitGS3K6auxwj4JM50UMt/EkGzU/CLtCw8Ytsem0RW24+pKliQmhV9+AAD9OICRIznoUvLmL3QhLn7CXJhbD/pitBl6GbIlDB/LXSw847bIjeRVzxD0CiObl0tyq+hwGgqcJkj8aJunQcZEyAjHhFBC+T8wtANE/tM+FHy+SLQK1YDPctDr/L6w+3jSNvNEqBYXXD+dpIsEt7hygvzHCuJeTUOSdnh63YeujjtD1IfwGtaoy9p5tg4I1WRPPxOlfC3Hb ssh-key-2022-05-28"
+displayName = 'xxxxxxxx'
+compartmentId = 'xxxxxxx'
+availabilityDomain = "xxxxxxx"
+imageId = "xxxxxx"
+subnetId = 'xxxxx'
+ssh_authorized_keys = "xxxxxx"
 
 
 import oci
@@ -22,33 +22,6 @@ logging.basicConfig(
     ]
 )
 
-#####################################      SCRIPT SETTING, CHANGE THIS        #########################################
-# Script Setting, change this (Each VM.Standard.A1.Flex ocpus = 6 GB memroy)
-# instance_type = "VM.Standard.A1.Flex"
-# OCI API_KEY and other parametter: https://github.com/hitrov/oci-arm-host-capacity (intercept request from web console)
-ocpus = 4
-memory_in_gbs = ocpus*6
-wait_s_for_retry = 10
-# Telegram setting
-# https://medium.com/@ManHay_Hong/how-to-create-a-telegram-bot-and-send-messages-with-python-4cf314d9fa3e
-# Create bot with BotFather, get the API key
-# Start the bot via conversation/chat with command /start
-# Get chat_id: https://api.telegram.org/bot<yourtoken>/getUpdates   if not get chat_id, chat some thing to the bot and retry
-# Start a chat with your bot, add [@get_id_bot](https://telegram.me/get_id_bot), and issue the `/my_id` command
-session = requests.Session()
-bot_api = '*******'
-chat_id = '*******'
-######################################################################################################################
-
-def telegram_notify(session, bot_api, chat_id, message):
-    '''Notify via telegram'''
-    try:
-        session.get(
-            f'https://api.telegram.org/bot{bot_api}/sendMessage?chat_id={chat_id}&text={message}')
-    except:
-        logging.info("Message fail to sent via telegram")
-
-#######################################################################################################################
 logging.info("#####################################################")
 logging.info("Script to spawn VM.Standard.A1.Flex instance")
 
