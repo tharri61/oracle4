@@ -1,5 +1,5 @@
 displayName = 'instance-20220528-1235'
-compartment_id = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
+compartmentId = 'ocid1.tenancy.oc1..aaaaaaaarbrmmxbh6zepzkslxm5ojr7rzr3acruhy5ybju7bgzd5pvq335ca'
 domain = "zlEC:AP-SINGAPORE-1-AD-1"  # availability_domain
 image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaaldfh4yzwhddx4ms7pytplyg5ncnp4kgeiam37zrgwh2qcfifpo3q"
 subnet_id = 'ocid1.subnet.oc1.ap-singapore-1.aaaaaaaafeijlmw7efv37vb7i6p4nl3xnro5wwynnqljmn2g24hzts22qc4a'
@@ -75,7 +75,7 @@ logging.info("Check current instances in account")
 logging.info(
     "Note: Free upto 4xVM.Standard.A1.Flex instance, total of 4 ocpus and 24 GB of memory")
 current_instance = to_launch_instance.list_instances(
-    compartment_id=compartment_id)
+    compartment_id=compartmentId)
 response = current_instance.data
 # oci.core.models.InstanceShapeConfig
 # print(type(response[0]))
@@ -129,7 +129,7 @@ instance_detail = oci.core.models.LaunchInstanceDetails(
     },
     availability_domain=domain,
     shape='VM.Standard.A1.Flex',
-    compartment_id=compartment_id,
+    compartment_id=compartmentId,
     display_name=displayName,
     source_details=oci.core.models.InstanceSourceViaImageDetails(
         source_type="image", image_id=image_id),
