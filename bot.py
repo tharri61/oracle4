@@ -42,17 +42,14 @@ to_launch_instance = oci.core.ComputeClient(config)
 
 message = f"Instance to create: VM.Standard.A1.Flex - {ocpus} ocpus - {memory_in_gbs} GB"
 logging.info(message)
-telegram_notify(session, bot_api, chat_id, message)
 
-###########################       Check current existing instance(s) in account         ##############################
 logging.info("Check current instances in account")
 logging.info(
     "Note: Free upto 4xVM.Standard.A1.Flex instance, total of 4 ocpus and 24 GB of memory")
 current_instance = to_launch_instance.list_instances(
     compartment_id=compartmentId)
 response = current_instance.data
-# oci.core.models.InstanceShapeConfig
-# print(type(response[0]))
+
 total_ocpus = total_memory = _A1_Flex = 0
 instance_names = []
 if response:
@@ -67,36 +64,26 @@ if response:
 
     message = f"Current: {_A1_Flex} active VM.Standard.A1.Flex instance(s) (including RUNNING OR STOPPED)"
     logging.info(message)
-    telegram_notify(session, bot_api, chat_id, message)
 else:
     logging.info(f"No instance(s) found!")
 
 
 message = f"Total ocpus: {total_ocpus} - Total memory: {total_memory} (GB) || Free {4-total_ocpus} ocpus - Free memory: {24-total_memory} (GB)"
 logging.info(message)
-telegram_notify(session, bot_api, chat_id, message)
 
-
-# Pre-check to verify total resource of current VM.Standard.A1.Flex (max 4 ocpus/24GB ram)
 if total_ocpus + ocpus > 4 or total_memory + memory_in_gbs > 24:
     message = "Total maximum resource exceed free tier limit (Over 4 ocpus/24GB total). **SCRIPT STOPPED**"
     logging.critical(message)
-    telegram_notify(session, bot_api, chat_id, message)
     sys.exit()
 
-# Check for duplicate display name
 if displayName in instance_names:
     message = f"Duplicate display name: >>>{displayName}<<< Change this! **SCRIPT STOPPED**"
     logging.critical(message)
-    telegram_notify(session, bot_api, chat_id, message)
     sys.exit()
 
 message = f"Precheck pass! Create new instance VM.Standard.A1.Flex: {ocpus} opus - {memory_in_gbs} GB"
 logging.info(message)
-telegram_notify(session, bot_api, chat_id, message)
-######################################################################################################################
 
-# Instance-detail
 instance_detail = oci.core.models.LaunchInstanceDetails(
     metadata={
         "ssh_authorized_keys": ssh_authorized_keys
@@ -125,8 +112,6 @@ instance_detail = oci.core.models.LaunchInstanceDetails(
         ocpus=ocpus, memory_in_gbs=memory_in_gbs)
 )
 
-#######################################      Main loop - program        ####################################################
-# Script try to send request each $wait_s_for_retry seconds until success
 to_try = True
 while to_try:
     try:
@@ -134,24 +119,17 @@ while to_try:
         to_try = False
         message = 'Success! Edit vnic to get public ip address'
         logging.info(message)
-        telegram_notify(session, bot_api, chat_id, message)
-        # print(to_launch_instance.data)
-        session.close()
+        sys.exit()
     except oci.exceptions.ServiceError as e:
         if e.status == 500:
-            # Out of host capacity.
             message = f"{e.message} Retry in {wait_s_for_retry}s"
-            #telegram_notify(session, bot_api, chat_id, message)
         else:
             message = f"{e} Retry in {wait_s_for_retry}s"
-            telegram_notify(session, bot_api, chat_id, message)
         logging.info(message)
         time.sleep(wait_s_for_retry)
     except Exception as e:
         message = f"{e} Retry in {wait_s_for_retry}s"
         logging.info(message)
-        telegram_notify(session, bot_api, chat_id, message)
         time.sleep(wait_s_for_retry)
     except KeyboardInterrupt:
-        session.close()
         sys.exit()
