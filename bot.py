@@ -22,15 +22,17 @@ logging.basicConfig(
     ]
 )
 
+ocpus = 4
+memory_in_gbs = 24
+wait_s_for_retry = 10
+
 logging.info("#####################################################")
 logging.info("Script to spawn VM.Standard.A1.Flex instance")
 
 
 message = f'Start spawning instance VM.Standard.A1.Flex - {ocpus} ocpus - {memory_in_gbs} GB'
 logging.info(message)
-telegram_notify(session, bot_api, chat_id, message)
 
-# Loading config file
 logging.info("Loading OCI config")
 config = oci.config.from_file(file_location="./config")
 
