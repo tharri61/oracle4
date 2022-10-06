@@ -4,7 +4,7 @@ RUN apt update && apt upgrade -y
 
 RUN pip3 install -U pip
 
-COPY requirement.txt /requirement.txt
+COPY requirements.txt /requirement.txt
 RUN cd /
 RUN pip3 install -U -r requirement.txt
 RUN mkdir /oracle4
